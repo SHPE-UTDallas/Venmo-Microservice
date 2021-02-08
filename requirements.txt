@@ -1,0 +1,4 @@
+venmo-api
+python-dotenv
+requests
+boto3
