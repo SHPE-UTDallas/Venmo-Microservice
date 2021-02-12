@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SHPE-UTDallas/Venmo-Microservice.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "serverless-dynamodb-local": "^0.2.39",
     "serverless-python-requirements": "^5.1.0",
     "serverless-wsgi": "^1.7.6"
-  },
-  "devDependencies": {}
+  }
 }
