@@ -134,3 +134,6 @@ node_modules/
 
 # Local dynamodb database
 .dynamodb/
+
+# Serverless deploy files
+.requirements.zip
