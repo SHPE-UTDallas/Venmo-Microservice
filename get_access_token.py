@@ -6,7 +6,7 @@ def main():
     username = input('Please enter your venmo username: ')
     password = input('Please enter your venmo password: ')
 
-    # User the venmo api client to get an access token for the user
+    # Use the venmo api client to get an access token for the user
     access_token = Client.get_access_token(username=username, password=password)
 
     print(f'\n\nAdd this line to your .env file:\nVENMO_ACCESS_TOKEN={access_token}')
