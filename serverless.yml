@@ -16,6 +16,7 @@ frameworkVersion: '2'
 useDotenv: true
 
 plugins:
+  - serverless-dynamodb-local
   - serverless-python-requirements
   - serverless-wsgi
 
@@ -26,6 +27,11 @@ custom:
     packRequirements: false
   pythonRequirements:
     dockerizePip: non-linux
+  dynamodb:
+    stages:
+      - dev
+    start:
+      migrate: true
 
 provider:
   name: aws

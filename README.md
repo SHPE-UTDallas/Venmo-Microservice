@@ -17,13 +17,17 @@ Prerequisites:
 - Clone the project
   - Install our plugins/dependencies for serverless (IaC utility):
     - `npm install`
+    - If you want to be able to develop locally instead of deploying to aws to test code install dynamodb: `sls dynamodb install`
   - Install our python dependencies:
     - `pip3 install -r requirements.txt`
 - Create a file called `.env` in the root directory
   - Run the `get_access_token.py` file (`python3 get_access_token.py`)
   - Add the line it outputs that says `VENMO_ACCESS_TOKEN=123123...` to your .env file
 - To run the project locally:
-  - Run `sls wsgi serve`
+  - Make sure you're installed dynamodb locally (`sls dynamodb install`)
+  - Start dynamodb in one terminal window/tab: `sls dynamodb start`
+  - Run `sls wsgi serve` in a seperate terminal window/tab
+  - Checkout this guide [here](dynamodb.md) for more info on dynamodb local and a useful GUI tool to view your local database
 - To deploy the project:
   - Setup your aws credentials - guide [here](https://slss.io/aws-creds-setup)
   - Run `sls deploy`

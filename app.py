@@ -2,18 +2,36 @@ from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 from venmo_api import Client
 from os import getenv
+import boto3
 
 load_dotenv()
 ACCESS_TOKEN = getenv('VENMO_ACCESS_TOKEN')
+VENMO_TABLE = getenv('VENMO_TABLE')
+IS_OFFLINE = getenv('IS_OFFLINE')
 
 app = Flask(__name__)
 venmo = Client(access_token=ACCESS_TOKEN)
 
+if IS_OFFLINE:
+    client = boto3.resource(
+        'dynamodb',
+        region_name='localhost',
+        endpoint_url='http://localhost:8000'
+    )
+else:
+    client = boto3.client('dynamodb')
 
-# Example of how to integrate with venmo api and use flask
+
+# Example of how to integrate with venmo api, dynamodb and use flask
 @app.route("/createToken", methods=["POST"])
 def create_token():
+    table = client.Table(VENMO_TABLE)
     user_id = request.json['userId']
+    response = table.put_item(
+        Item={
+            'userId': user_id
+        }
+    )
     user = venmo.user.search_for_users(query=user_id)[0]
     print(user)
     transactions = venmo.user.get_user_transactions(user=user)

@@ -131,3 +131,6 @@ dmypy.json
 .idea/
 .serverless/
 node_modules/
+
+# Local dynamodb database
+.dynamodb/
