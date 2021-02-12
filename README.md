@@ -31,3 +31,7 @@ Prerequisites:
 - To deploy the project:
   - Setup your aws credentials - guide [here](https://slss.io/aws-creds-setup)
   - Run `sls deploy`
+<br/>
+<br/>
+
+### Note: in order to deploy to aws/run this locally you may need to install [Docker](https://www.docker.com/) as well (I'm pretty sure we use it for deploying but not 100% sure - I already had it installed prior to setting this up)
