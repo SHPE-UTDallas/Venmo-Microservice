@@ -19,7 +19,7 @@ if IS_OFFLINE:
         endpoint_url='http://localhost:8000'
     )
 else:
-    client = boto3.client('dynamodb')
+    client = boto3.resource('dynamodb')
 
 
 # Example of how to integrate with venmo api, dynamodb and use flask
